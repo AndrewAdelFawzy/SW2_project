@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+</head>
+<body>
+    
+
+    <%- include("parts/navbar.ejs") %>    
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-12 col-md-6">
+                <img src="/<%= college.image %>">      
+
+                <% if(invalid) { %>
+                    <p class="alert alert-danger">
+                        <%= invalid.msg %>
+                    </p>
+                <% } %>
+
+            </div>
+
+            <div class="col col-12 col-md-6">
+                <h2> <%= college.name %> </h2>
+                <h3 ><%= college.field %> </h3>
+                <h5> <%= college.about %> </h5>
+            </div>
+        </div>
+    </div> 
+
+
+
+    <script src="/js/bootstrap.min.css"></script>
+    <script src="/js/bootstrap1.min.css"></script>
+    <script src="/js/popper.min.css"></script>
+</body>
+</html>

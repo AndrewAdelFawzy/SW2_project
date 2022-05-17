@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- starts from assets folder -->
+</head>
+<body>
+    
+
+    <%- include("parts/navbar.ejs") %> 
+
+
+    <div class="container">
+
+
+        <form action="" method="get">
+
+            <select name="field" class="form-control">
+                <option value="all">All</option>
+                <option value="engineering">Engineering</option>
+                <option value="medical">Medical</option>
+                <option value="other">Other</option>
+            </select>
+
+            <input type="submit" value="filter" class="btn btn-danger">
+             
+        </form> 
+
+        
+
+        <% if(invalid) { %>
+        <p class="alert alert-danger">
+            <%= invalid.msg %>
+        </p>
+        <% } %> 
+
+
+
+        <div class="row">
+
+            
+            <% for (let college of colleges){ %>
+            <div class="col col-12 col-md-6 col-lg-4 col-xl-4">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= college.image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/college/<%=college.id%>">  <%= college.name %>  </a>
+                        <p class="card-text">  field : <%= college.field  %>  </p>
+                    </h5>   
+
+
+
+                    </div> 
+                </div>  <br><br>
+
+            </div>
+            <% } %>
+
+            
+        </div>
+    </div>
+
+
+
+    <script src="/js/bootstrap.min.css"></script>
+    <script src="/js/bootstrap1.min.css"></script>
+    <script src="/js/popper.min.css"></script>
+</body>
+</html>
